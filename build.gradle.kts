@@ -15,7 +15,7 @@ val modName = rootDir.name
  * the path behind the ?:.
  * Note: On Linux, if you installed Starsector into your home directory, you have to write /home/<user>/ instead of ~/
  */
-val starsectorDirectory = System.getenv("STARSECTOR_DIRECTORY") ?: "C:/Program Files (x86)/Fractal Softworks/Starsector"
+val starsectorDirectory = if(providers.gradleProperty("starsector.dir").isPresent) providers.gradleProperty("starsector.dir").get() else "C:/Games/Starsector0.97a"
 
 /** Defaults to the name of your mod, with spaces replaced by hyphens. */
 val modFolderName = modName.replace(" ", "-")
